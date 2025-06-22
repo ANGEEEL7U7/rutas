@@ -1,0 +1,45 @@
+<div class="flex h-[450px]">
+  <img
+    src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+    alt="placeholder"
+    class="h-auto w-[50%] object-cover"
+  />
+  <div class="flex flex-col grow ml-4">
+    <h1 class="text-3xl font-bold">{{ detallesProducto.nombre }}</h1>
+    <p>
+      Descubre un producto que combina diseño inteligente, estética moderna y
+      funcionalidad excepcional. Pensado para adaptarse a los ritmos de vida
+      actuales, cada elemento ha sido cuidadosamente desarrollado para ofrecer
+      una experiencia superior desde el primer uso. Su estructura elegante y
+      materiales de alta calidad no solo garantizan durabilidad, sino que
+      también aportan un toque sofisticado a cualquier entorno. Características
+      destacadas:
+    </p>
+    <div class="flex flex-col gap-4 mt-6 mb-auto">
+      <span>
+        ✅ Diseño elegante y minimalista Se adapta a cualquier entorno, desde
+        espacios modernos hasta los más clásicos.
+      </span>
+      <span>
+        🔧 Alta funcionalidad Pensado para el uso diario, con detalles prácticos
+        que hacen la diferencia.
+      </span>
+      <span>
+        🌱 Materiales de calidad y sostenibles Fabricado con compromiso
+        ecológico y larga durabilidad.
+      </span>
+      <span>
+        🎯 Versatilidad total Úsalo como, donde y cuando quieras: se adapta a
+        tus necesidades.
+      </span>
+    </div>
+    <div class="flex">
+      <span class="text-3xl text-indigo-600 font-bold grow">{{
+        detallesProducto.precio | currency
+      }}</span>
+      <button class="bg-green-400 px-3 rounded hover:bg-green-500 transition">
+        <i class="ri-add-line"></i> Agregar al carrito
+      </button>
+    </div>
+  </div>
+</div>

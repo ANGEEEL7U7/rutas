@@ -1,0 +1,35 @@
+<h3 class="text-xl font-bold">Carrito de compras</h3>
+<ng-container *ngIf="productos.length != 0; else sinDatos">
+  <div
+    class="flex flex-col border rounded border-gray-400 divide-y-1 divide-gray-400"
+  >
+    <div *ngFor="let producto of productos" class="px-3 py-2 flex">
+      <img
+        src="https://www.svgrepo.com/show/508699/landscape-placeholder.svg"
+        alt="placeholder"
+        class="w-[50px] h-[50px] rounded-full object-cover"
+      />
+      <div class="flex flex-col ml-3 grow">
+        <span class="font-bold">{{ producto.nombre }}</span>
+        <span class="text-gray-400">${{ producto.precio }}</span>
+      </div>
+      <button
+        (click)="eliminarProducto(producto)"
+        class="bg-red-300 rounded-full px-2 my-auto py-1 hover:bg-red-400 transition"
+      >
+        <i class="ri-delete-bin-7-line"></i>
+      </button>
+    </div>
+  </div>
+  <div
+    class="flex md:flex-row flex-col mt-4 border border-gray-400 rounded p-3"
+  >
+    <span class="font-bold grow my-auto">Total: ${{total}}</span>
+    <button
+      class="bg-green-400 px-3 py-2 rounded transition hover:bg-green-500"
+    >
+      Realizar Compra
+    </button>
+  </div>
+</ng-container>
+<ng-template #sinDatos>Sin productos</ng-template>
