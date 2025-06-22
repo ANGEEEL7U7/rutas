@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CarritoService } from '../carrito/carrito.service';
 import { ActivatedRoute } from '@angular/router';
+import { UsuarioService } from '../usuario/usuario.service';
 
 @Component({
   selector: 'app-cabecera',
@@ -8,19 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cabecera.component.css'],
 })
 export class CabeceraComponent implements OnInit {
-  @Output() modo = new EventEmitter<void>();
+  constructor(
+    private carritoService: CarritoService,
+    private usuarioService: UsuarioService
+  ) {}
 
-  constructor(private carritoService: CarritoService) {}
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   get contadorCarrito(): number {
     return this.carritoService.nuevosProductos.length;
   }
+  get sesionActiva(): boolean{
+    return this.usuarioService.sesionActive;
+  }
 
-  cambiarModo(): void {
-    this.modo.emit();
+  cerrarSesion(): void{
+    this.usuarioService.cerrarSesion();
   }
 }

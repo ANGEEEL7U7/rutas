@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContactoComponent } from './contacto/contacto.component';
-import { CatalogoComponent } from './carrito/catalogo/catalogo.component';
-import { ProductoComponent } from './carrito/producto/producto.component';
-import { CarritoComponent } from './carrito/carrito.component';
 import { ErrorPaginaComponent } from './error-pagina/error-pagina.component';
+import { LoginGuard } from './usuario/login.guard';
 
 const routes: Routes = [
   {
@@ -16,6 +13,7 @@ const routes: Routes = [
     path: 'contacto',
     loadChildren: () =>
       import('./contacto/contacto.module').then((m) => m.ContactoModule),
+    canLoad: [LoginGuard],
   },
   {
     path: '**',

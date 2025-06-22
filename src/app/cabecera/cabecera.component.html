@@ -15,7 +15,15 @@
   </div>
   <div class="flex">
     <button
+      *ngIf="sesionActiva"
+      (click)="cerrarSesion()"
+      class="px-2 p-1 m-auto mr-3 hover:bg-indigo-200/50 transition rounded-full"
+    >
+      <i class="ri-logout-box-line mx-auto"></i>
+    </button>
+    <button
       routerLink="perfil"
+      *ngIf="sesionActiva"
       class="px-2 p-1 my-auto mr-3 hover:bg-indigo-200/50 transition rounded-full"
     >
       <i class="ri-user-line"></i>

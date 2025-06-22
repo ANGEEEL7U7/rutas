@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginGuard } from './login.guard';
 
 const rutas: Routes = [
   {
     path: 'perfil',
     loadChildren: () =>
-      import('./perfil/perfil.module').then(m => m.PerfilModule),
+      import('./perfil/perfil.module').then((m) => m.PerfilModule),
+    canActivate: [LoginGuard],
   },
   {
     path: 'login',
